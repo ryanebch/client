@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
 <!-- Header -->
 <button id="menu-btn">
   <i class="fa fa-bars"></i> <!-- You can use any icon or text for the menu -->
@@ -41,7 +40,6 @@
         </div> <!-- End of row -->
     </div> <!-- End of h-bar -->
 </header>
-
 
 <main>
   <div class="side-nav">
@@ -80,34 +78,54 @@
     </ul>
   </div>
 </div>
-<!-- Main Content: Table displaying client information -->
+
 <div class="container" style="margin-left: 120px; margin-top: 100px;">
-    <h2>Client List</h2>
+    <div class="selection">
+        <select id="filters">
+            <option value="tous">Tous les Docteurs</option>
+            <option value="Dr Keciour Nesma">Dr Keciour Nesma</option>
+            <option value="Dr Belhedid Ibtissem">Dr Belhedid Ibtissem</option>
+            <option value="Dr Bensalah Meriem">Dr Bensalah Meriem</option>
+            <option value="Dr Guerroumi Lynda">Dr Guerroumi Lynda</option>
+            <option value="Dr Bouchetara">Dr Bouchetara Ryane</option>
+        </select>
+    </div>
+    <h2>Liste des patients</h2>
     <table class="table table-hover text-center">
         <thead>
             <tr>
-                <th>Appointment ID</th>
+                <th>ID</th>
                 <th>Prénom</th>
                 <th>Nom</th>
                 <th>Phone</th>
-                <th>Actions</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
             <?php
             include "db_conn.php";
-            // SQL query to get all appointments grouped by the client (prenom and nom)
+
+            // Filter by doctor if one is selected
+            $nom_docteur = isset($_POST['nom_docteur']) ? $_POST['nom_docteur'] : 'tous';
+            
             $sql = "SELECT 
-            appointment_id as appointment_id,
-            prenom_patient, 
-            nom_patient, 
-            phone, 
-            GROUP_CONCAT(motif ORDER BY date ASC) AS motif, 
-            GROUP_CONCAT(date ORDER BY date ASC) AS date, 
-            GROUP_CONCAT(heure ORDER BY date ASC) AS heure
-        FROM appointments
-        GROUP BY prenom_patient, nom_patient, phone
-        ORDER BY appointment_id ASC";
+                        appointment_id as appointment_id,
+                        prenom_patient, 
+                        nom_patient, 
+                        nom_docteur,
+                        phone, 
+                        GROUP_CONCAT(motif ORDER BY date ASC) AS motif, 
+                        GROUP_CONCAT(date ORDER BY date ASC) AS date, 
+                        GROUP_CONCAT(heure ORDER BY date ASC) AS heure
+                    FROM appointments
+                    WHERE status IN ('confirmed', 'deleted')";
+
+            if ($nom_docteur && $nom_docteur !== 'tous') {
+                $sql .= " AND nom_docteur = '$nom_docteur'";
+            }
+
+            $sql .= " GROUP BY prenom_patient, nom_patient, phone
+                      ORDER BY appointment_id ASC";
 
             $result = mysqli_query($conn, $sql);
             while ($row = mysqli_fetch_assoc($result)) {
@@ -125,7 +143,7 @@
                                 data-motif="<?php echo $row['motif']; ?>"
                                 data-date="<?php echo $row['date']; ?>"
                                 data-heure="<?php echo $row['heure']; ?>">
-                            View Appointments
+                            Détails
                         </button>
                     </td>
                 </tr>
@@ -141,7 +159,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="viewModalLabel">Appointment Details</h5>
+                <h5 class="modal-title" id="viewModalLabel">Détails</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -163,35 +181,6 @@
 <!-- Include Bootstrap JS and jQuery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-
-<script>
-$(document).ready(function() {
-    // When clicking on the View button
-    $('.view-btn').on('click', function() {
-        var prenom = $(this).data('prenom');
-        var nom = $(this).data('nom');
-        var phone = $(this).data('phone');
-        var motif = $(this).data('motif').split(",");
-        var date = $(this).data('date').split(",");
-        var heure = $(this).data('heure').split(",");
-
-        // Set the modal values with the data attributes
-        $('#view-prenom').text(prenom);
-        $('#view-nom').text(nom);
-        $('#view-phone').text(phone);
-
-        // Populate the motif, date, and heure in the textarea
-        var motifText = '';
-        for (var i = 0; i < motif.length; i++) {
-            motifText += "Motif: " + motif[i] + "\nDate: " + date[i] + "\nHeure: " + heure[i] + "\n\n";
-        }
-        $('#view-motif').val(motifText); // Set the value in the textarea
-
-        // Show the modal
-        $('#viewModal').modal('show');
-    });
-});
-</script>
-
+<script src="index.js"></script>
 </body>
 </html>

@@ -2,6 +2,7 @@
 
 :root {
   --blue: #6475af;
+  --green: #64aa8a;
   --black: #333;
   --white: #fff;
   --light-color: #666;
@@ -47,6 +48,12 @@ body {
   background-color: #f8f9fa;
   margin: 0;
   padding: 0;
+}
+
+.container h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
 }
 
 /*header and side nav*/
@@ -288,11 +295,6 @@ ul li:hover {
   font-size: 1.5rem;
 }
 
-/*--------------------------------------------------------------*/
-.container {
-  margin-top: 30px;
-}
-
 /* Table Styles */
 .table {
   background-color: #fff;
@@ -303,6 +305,7 @@ ul li:hover {
 
 .table th,
 .table td {
+  text-transform: capitalize;
   text-align: center;
   padding: 12px;
   font-size: 14px;
@@ -403,18 +406,36 @@ textarea:focus {
 
 /* Buttons */
 .btn-info {
-  background-color: var(--blue);
+  background-color: var(--green) !important;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 10px 10px;
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
 .btn-info:hover {
-  background-color: var(--blue);
+  opacity: 70%;
 }
+
+/*selection*/
+
+.selection select {
+  width: 200px;
+  text-align: center;
+  float: right;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+  margin-bottom: 20px;
+
+}
+
+
 
 /* Responsive Design */
 @media (max-width: 768px) {
