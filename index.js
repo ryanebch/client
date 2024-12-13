@@ -1,12 +1,13 @@
 $(document).ready(function () {
   // Delegate the click event to dynamically added .view-btn elements
-  $('tbody').on('click', '.view-btn', function () {
-    var motif = $(this).data('motif');
-    var date = $(this).data('date');
-    var heure = $(this).data('heure');
-    var prenom = $(this).data('prenom');
-    var nom = $(this).data('nom');
-    var phone = $(this).data('phone');
+  $(document).on('click', '.view-btn', function () {
+    // Get the data from the clicked button
+    var motif = $(this).data('motif') || '';  // Default to empty string if not set
+    var date = $(this).data('date') || '';    // Default to empty string if not set
+    var heure = $(this).data('heure') || '';  // Default to empty string if not set
+    var prenom = $(this).data('prenom') || ''; // Default to empty string if not set
+    var nom = $(this).data('nom') || '';      // Default to empty string if not set
+    var phone = $(this).data('phone') || '';  // Default to empty string if not set
 
     // Set the modal values with the data attributes
     $('#view-prenom').text(prenom);
@@ -52,15 +53,5 @@ $(document).ready(function () {
         console.error('Erreur:', error); // Log any errors
       }
     });
-  });
-
-  // JavaScript to toggle the menu and side navigation visibility
-  const menuBtn = document.getElementById('menu-btn');
-  const sideNav = document.querySelector('.side-nav');
-
-  // Toggle the side navigation when the menu button is clicked
-  menuBtn.addEventListener('click', () => {
-    sideNav.classList.toggle('active');
-    menuBtn.classList.toggle('active');
   });
 });
