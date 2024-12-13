@@ -1,0 +1,556 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+/* CSS pseudo-class matches the root element of a tree */
+:root {
+  --blue: #9cafeb;
+  --black: #333;
+  --white: #fff;
+  --light-color: #666;
+  --light-bg: #eee;
+  --border: .2rem solid rgba(0, 0, 0, .1);
+  --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+}
+
+* {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none !important;
+}
+
+/* The ::-webkit-scrollbar CSS pseudo-element affects the style of an element's scrollbar when it has overflow:scroll; set. */
+*::-webkit-scrollbar {
+  height: .5rem;
+  width: 1rem;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--blue);
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-padding-top: 6.5rem;
+}
+
+section {
+  padding: 7rem 2rem;
+}
+
+.heading {
+  text-align: center;
+  font-size: 4rem;
+  color: var(--black);
+  text-transform: uppercase;
+  font-weight: bolder;
+  margin-bottom: 3rem;
+}
+
+.link-btn {
+  display: inline-block;
+  padding: 1rem 3rem;
+  border-radius: .5rem;
+  background-color: var(--blue);
+  cursor: pointer;
+  font-size: 1.7rem;
+  color: var(--white);
+}
+
+.link-btn:hover {
+  background-color: rgb(224, 224, 240);
+  color: white;
+  transition: 0.3s;
+}
+
+.header {
+  padding: 2rem;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+.header.active {
+  background-color: var(--white);
+  box-shadow: var(--box-shadow);
+  border: 0;
+}
+
+.header img {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  margin-left: -5px;
+  align-items: center;
+  gap: 10px;
+  margin-top: -20px;
+
+}
+
+
+.header .logo {
+  font-size: 3rem;
+  color: var(--black);
+}
+
+.header .logo span {
+  color: var(--blue);
+}
+
+.header .nav a {
+  margin: 0 1rem;
+  font-size: 1.7rem;
+  color: var(--black);
+}
+
+.header .nav a:hover {
+  color: var(--blue);
+}
+
+#menu-btn {
+  font-size: 2.5rem;
+  color: var(--black);
+  cursor: pointer;
+  display: none;
+}
+
+/*home*/
+.home {
+  background: url(./images/dental.png) no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(250, 246, 253, 0.8)
+}
+
+.home .content {
+  width: 55rem;
+  padding: 2rem;
+}
+
+.home .content h3 {
+  font-size: 6rem;
+  text-transform: uppercase;
+  color: #464749;
+}
+
+.home .content p {
+  line-height: 2;
+  font-size: 1.5rem;
+  color: var(--light-color);
+  padding: 1rem 0;
+
+}
+
+.about {
+  background-image: linear-gradient(to bottom left, rgba(210, 216, 238, 0.8), rgba(255, 255, 255, 0.9));
+}
+
+/*about*/
+.about .row {
+  min-height: 60vh;
+}
+
+.about .content span {
+  font-size: 2rem;
+  color: var(--blue);
+}
+
+.about .content h3 {
+  font-size: 3rem;
+  color: var(--black);
+  margin-top: 1rem;
+}
+
+.about .content p {
+  padding: 1rem 0;
+  font-size: 1.4rem;
+  color: var(--light-color);
+  line-height: 2;
+}
+
+/*services*/
+.services {
+  background-color: var(--light-bg);
+}
+
+.services .box-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 2rem;
+}
+
+.services .box-container .box {
+  text-align: center;
+  padding: 2rem;
+  background-color: var(--white);
+  box-shadow: var(--box-shadow);
+  border-radius: .5rem;
+}
+
+.services .box-container .box img {
+  margin: 1rem 0;
+  height: 4rem;
+}
+
+.services .box-container .box h3 {
+  font-size: 2rem;
+  padding: 1rem 0;
+  color: var(--black);
+}
+
+.services .box-container .box p {
+  font-size: 1.5rem;
+  color: var(--light-color);
+  line-height: 2;
+}
+
+/*processus*/
+
+.process {
+  background-image: linear-gradient(to top left, rgba(210, 216, 238, 0.8), rgba(255, 255, 255, 0.9));
+
+}
+
+.process .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 2rem;
+
+}
+
+.process .box-container .box {
+  background-image: linear-gradient(to bottom, rgba(96, 175, 255, 0.062), rgba(255, 255, 255, 0.9));
+  padding: 2rem;
+  border-radius: .5rem;
+  text-align: center;
+  box-shadow: var(--box-shadow);
+}
+
+.process .box-container .box img {
+  height: 20rem;
+  margin: 1rem 0;
+}
+
+.process .box-container .box h3 {
+  font-size: 2rem;
+  color: rgb(197, 197, 197);
+  margin: 1.5rem 0;
+}
+
+.process .box-container .box p {
+  font-size: 1.5rem;
+  color: grey;
+  line-height: 2;
+}
+
+/*review*/
+.testimonials {
+  background-color: #f2f2f7;
+  padding: 0px;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.testimonials h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+/* Style du slider (les slides) */
+.slider {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide {
+  display: none;
+  width: 80%;
+  max-width: 500px;
+  margin: 0 auto;
+  transition: all 0.5s ease-in-out;
+}
+
+.slide.active {
+  display: block;
+}
+
+.card {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.card img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-left: 180px;
+  margin-bottom: 20px;
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 1.8rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.stars {
+  font-size: 1.2rem;
+  color: #f9c42e;
+}
+
+/* Style des points de navigation (dots) */
+.dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #333;
+}
+
+/* Style du formulaire d'avis */
+form {
+  margin-top: 40px;
+  text-align: center;
+  background-color: #fff;
+  padding: 20px;
+  border: 2px solid #ccc;
+  /* Bordure autour du formulaire */
+  border-radius: 8px;
+  /* Bordure arrondie */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  /* Limite la largeur maximale du formulaire */
+  margin-left: auto;
+  margin-right: auto;
+  /* Centrer le formulaire */
+}
+
+form input,
+form textarea,
+form select {
+  width: 100%;
+  /* Prendre toute la largeur disponible */
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  /* Inclure padding et bordure dans la largeur totale */
+}
+
+form button {
+  padding: 10px 20px;
+  background-color: var(--blue);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  width: 100%;
+  /* S'ajuste à la largeur du formulaire */
+}
+
+form button:hover {
+  background-color: #b1bddf;
+}
+
+/* media queries  */
+
+/*contact*/
+.footer {
+  background-color: #f9f9fc;
+}
+
+.footer .box-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 3rem;
+}
+
+.footer .box-container .box {
+  text-align: center;
+}
+
+.footer .box-container .box i {
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
+  line-height: 5rem;
+  font-size: 2rem;
+  background-color: var(--blue);
+  color: var(--white);
+}
+
+.footer .box-container .box h3 {
+  font-size: 2rem;
+  margin: 2rem 0;
+  color: var(--black);
+}
+
+.footer .box-container .box p {
+  font-size: 1.5rem;
+  color: var(--light-color);
+  text-transform: none;
+}
+
+.footer .credit {
+  text-align: center;
+  border-top: var(--border);
+  padding-top: 2rem;
+  margin-top: 2rem;
+  font-size: 2rem;
+  color: var(--light-color);
+}
+
+.footer .credit span {
+  color: var(--blue);
+}
+
+@media (max-width:991px) {
+
+  html {
+    font-size: 55%;
+  }
+
+  .header .link-btn {
+    display: none;
+  }
+
+  section {
+    padding: 5rem 2rem;
+  }
+
+}
+
+@media (max-width:768px) {
+
+  section {
+    padding: 3rem 1rem;
+  }
+
+  #menu-btn {
+    display: inline-block;
+    transition: .2s linear;
+  }
+
+  #menu-btn.fa-times {
+    transform: rotate(180deg);
+  }
+
+  .header .nav {
+    position: absolute;
+    top: 99%;
+    left: 0;
+    right: 0;
+    background-color: var(--white);
+    border-top: var(--border);
+    border-bottom: var(--border);
+    padding: 1rem 0;
+    text-align: center;
+    flex-flow: column;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    transition: .2s linear;
+  }
+
+  .header .nav.active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .header .nav a {
+    margin: 1rem 0;
+    font-size: 2rem;
+  }
+
+  .home {
+    background-position: center;
+  }
+
+  .home .content {
+    width: auto;
+  }
+
+  .slider {
+    flex-direction: column;
+  }
+
+  .card {
+    width: 90%;
+  }
+
+  .dots {
+    flex-direction: column;
+  }
+
+  .dot {
+    margin: 5px 0;
+  }
+
+  form {
+    width: 90%;
+    /* Réduit la largeur du formulaire sur petits écrans */
+  }
+
+  form input,
+  form textarea,
+  form select {
+    width: 100%;
+    /* Prendre toute la largeur disponible */
+  }
+
+  form button {
+    width: 100%;
+    /* S'ajuste à la largeur du formulaire */
+  }
+}
+
+
+@media (max-width:450px) {
+
+  html {
+    font-size: 50%;
+  }
+
+  .home .content h3 {
+    font-size: 4rem;
+  }
+
+  .heading {
+    font-size: 3rem;
+  }
+
+}

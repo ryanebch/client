@@ -57,17 +57,41 @@ $(document).ready(function () {
 
   // Search function for filtering rows based on the search input
   $('#search-input').on('input', function () {
-    var searchText = $(this).val().toLowerCase(); // Get the search input and convert it to lowercase
+    var searchText = $(this).val().trim().toLowerCase(); // Trim spaces and convert to lowercase
 
-    // Loop through the table rows and filter based on the search text
+    // If the search text is empty, show all rows
+    if (searchText === "") {
+      $('tbody tr').show();
+      return;
+    }
+
+    // Split the search term by space so we can match individual words
+    var searchTerms = searchText.split(' ');
+
+    // Loop through the table rows and filter based on the search terms
     $('tbody tr').each(function () {
-      var rowText = $(this).text().toLowerCase(); // Get the text of the row and convert it to lowercase
+      var prenomText = $(this).find('td').eq(1).text().toLowerCase();  // Prenom column (index 1)
+      var nomText = $(this).find('td').eq(2).text().toLowerCase();      // Nom column (index 2)
+      var phoneText = $(this).find('td').eq(3).text().toLowerCase();    // Phone column (index 3)
 
-      // If the row text contains the search text, show the row; otherwise, hide it
-      if (rowText.indexOf(searchText) !== -1) {
-        $(this).show(); // Show row
+      var matches = true;
+
+      // Check if each search term matches any of the columns
+      searchTerms.forEach(function (term) {
+        if (
+          !prenomText.includes(term) &&
+          !nomText.includes(term) &&
+          !phoneText.includes(term)
+        ) {
+          matches = false;
+        }
+      });
+
+      // Show row if all search terms match, otherwise hide it
+      if (matches) {
+        $(this).show();
       } else {
-        $(this).hide(); // Hide row
+        $(this).hide();
       }
     });
   });
