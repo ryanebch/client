@@ -54,4 +54,21 @@ $(document).ready(function () {
       }
     });
   });
+
+  // Search function for filtering rows based on the search input
+  $('#search-input').on('input', function () {
+    var searchText = $(this).val().toLowerCase(); // Get the search input and convert it to lowercase
+
+    // Loop through the table rows and filter based on the search text
+    $('tbody tr').each(function () {
+      var rowText = $(this).text().toLowerCase(); // Get the text of the row and convert it to lowercase
+
+      // If the row text contains the search text, show the row; otherwise, hide it
+      if (rowText.indexOf(searchText) !== -1) {
+        $(this).show(); // Show row
+      } else {
+        $(this).hide(); // Hide row
+      }
+    });
+  });
 });

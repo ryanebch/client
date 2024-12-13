@@ -436,6 +436,57 @@ textarea:focus {
 }
 
 
+/* Style the search bar container */
+.search-bar {
+  margin-bottom: 20px;
+  /* Add some space below the search bar */
+  max-width: 500px;
+  /* Set a max width for the search bar */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Style the search input */
+#search-input {
+  width: 100%;
+  /* Make the input take full width of the container */
+  padding: 10px;
+  /* Add padding for a better look */
+  font-size: 16px;
+  /* Set font size */
+  border: 1px solid #ddd;
+  /* Light border */
+  border-radius: 30px;
+  /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* Subtle shadow */
+  transition: all 0.3s ease;
+  /* Smooth transition for focus effect */
+}
+
+/* Add focus effect */
+#search-input:focus {
+  border-color: #007bff;
+  /* Change border color when focused */
+  outline: none;
+  /* Remove default outline */
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.4);
+  /* Add a blue glow */
+}
+
+/* Optional: Add a placeholder color */
+#search-input::placeholder {
+  color: #888;
+  /* Lighter color for placeholder text */
+}
+
+/* Optional: Add a search icon inside the search input */
+#search-input {
+  background: url('https://imageURL.com/search-icon.png') no-repeat scroll 10px center;
+  background-size: 20px;
+  padding-left: 40px;
+  /* Space for the icon */
+}
 
 /* Responsive Design */
 @media (max-width: 768px) {

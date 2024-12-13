@@ -90,7 +90,13 @@
             <option value="Dr Bouchetara">Dr Bouchetara Ryane</option>
         </select>
     </div>
+    
     <h2>Liste des patients</h2>
+    <!-- Add Search Bar above the table -->
+<div class="search-bar">
+    <input type="text" id="search-input" class="form-control" placeholder="Rechercher un patient" />
+</div>
+
     <table class="table table-hover text-center">
         <thead>
             <tr>
