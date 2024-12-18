@@ -2,7 +2,8 @@
 
 /* CSS pseudo-class matches the root element of a tree */
 :root {
-  --blue: #9cafeb;
+  --blue: #6475af;
+  --green: #64aa8a;
   --black: #333;
   --white: #fff;
   --light-color: #666;
@@ -60,6 +61,7 @@ section {
   padding: 1rem 3rem;
   border-radius: .5rem;
   background-color: var(--blue);
+  margin-right: -100px;
   cursor: pointer;
   font-size: 1.7rem;
   color: var(--white);
@@ -88,13 +90,15 @@ section {
   width: 50px;
   height: 50px;
   border-radius: 5px;
-  margin-left: -5px;
   align-items: center;
   gap: 10px;
   margin-top: -20px;
 
 }
 
+.whole {
+  margin-left: -100px;
+}
 
 .header .logo {
   font-size: 3rem;

@@ -16,8 +16,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="calendrier.css">
-  <link rel="stylesheet" href="sidehead.css">
+  <link rel="stylesheet" href="calendrier.css">
+  <link rel="stylesheet" href="sidehead2.css">
   <title>Calendrier</title>
 </head>
 
@@ -26,13 +26,13 @@
   <header class="headerr fixed-top">
     <div class="h-bar">
       <div class="logo">
-        <img src="images/logo.jpeg" alt="Logo">
+        <img src="images/tooth copy.png" alt="Logo">
         <a href="index.php" style="text-decoration:none;">
           <h1>Cabinet<span class="highlight">Plus</span></h1>
         </a>
       </div>
       <nav class="nav-q">
-        <a href="#">Accueil</a>
+        <a href="../../accueil/home.css">Accueil</a>
         <a href="#">Patients</a>
         <a href="#">Prothèses</a>
         <a href="#">Calendrier</a>
@@ -51,39 +51,39 @@
         </div>
       </div>
       <div class="icons">
-      <ul>
-        <a href="index.php">
-          <li><img src="images/dashboard.png">
-            <p>Dashboard</p>
+        <ul>
+          <a href="index.php">
+            <li><img src="images/dashboard.png">
+              <p>Dashboard</p>
+            </li>
+          </a>
+          <a href="#">
+            <li><img src="images/members.png">
+              <p>Page de clients</p>
+            </li>
+          </a>
+          <a href="#">
+            <li><img src="images/rewards.png">
+              <p>Pages de produits</p>
+            </li>
+          </a>
+          <a href="#">
+            <li><img src="images/projects.png">
+              <p>Bon d'achat</p>
+            </li>
+          </a>
+          <a href="#">
+            <li><img src="images/setting.png">
+              <p>Fournisseur</p>
+            </li>
+          </a>
+        </ul>
+        <ul>
+          <li><img src="images/logout.png">
+            <p>Deconnexion</p>
           </li>
-        </a>
-        <a href="#">
-          <li><img src="images/members.png">
-            <p>Page de clients</p>
-          </li>
-        </a>
-        <a href="#">
-          <li><img src="images/rewards.png">
-            <p>Pages de produits</p>
-          </li>
-        </a>
-        <a href="#">
-          <li><img src="images/projects.png">
-            <p>Bon d'achat</p>
-          </li>
-        </a>
-        <a href="#">
-          <li><img src="images/setting.png">
-            <p>Fournisseur</p>
-          </li>
-        </a>
-      </ul>
-      <ul>
-        <li><img src="images/logout.png">
-          <p>Deconnexion</p>
-        </li>
-      </ul>
-    </div>
+        </ul>
+      </div>
     </div>
 
 
@@ -93,40 +93,42 @@
           <h1 id="year"></h1>
           <h1 id="month"></h1>
           <div class="buttons">
-          <button class="fa-solid fa-caret-up" onclick="changeMonth(1)"></button>
-          <button class="fa-solid fa-caret-down" onclick="changeMonth(-1)"></button>
+            <button class="fa-solid fa-caret-up" onclick="changeMonth(1)"></button>
+            <button class="fa-solid fa-caret-down" onclick="changeMonth(-1)"></button>
           </div>
         </div>
         <div class="right">
           <div class="selection">
-              <select id="filters">
-                  <option value="tous">Tous les Docteurs</option>
-                  <option value="Dr Keciour Nesma">Dr Keciour Nesma</option>
-                  <option value="Dr Belhedid Ibtissem">Dr Belhedid Ibtissem</option>
-                  <option value="Dr Bensalah Meriem">Dr Bensalah Meriem</option>
-                  <option value="Dr Guerroumi Lynda">Dr Guerroumi Lynda</option>
-                  <option value="Dr Bouchetara Ryane">Dr Bouchetara Ryane</option>
-                </select>            
+            <select id="filters">
+              <option value="tous">Tous les Docteurs</option>
+              <option value="Dr Keciour Nesma">Dr Keciour Nesma</option>
+              <option value="Dr Belhedid Ibtissem">Dr Belhedid Ibtissem</option>
+              <option value="Dr Bensalah Meriem">Dr Bensalah Meriem</option>
+              <option value="Dr Guerroumi Lynda">Dr Guerroumi Lynda</option>
+              <option value="Dr Bouchetara Ryane">Dr Bouchetara Ryane</option>
+            </select>
           </div>
           <div class="ajouter">
-            <button id="ajouter" onclick="window.location.href='ajouterdv.html'"><i class="fa-solid fa-plus"></i>    Ajouter un Rendez-vous</button>
+            <button id="ajouter" onclick="window.location.href='ajouterdv.html'"><i class="fa-solid fa-plus"></i>
+              Ajouter un Rendez-vous</button>
           </div>
         </div>
       </div>
       <div class="calendar">
-      <div class="days">
-        <div class="dayoff">Samedi</div>
-        <div>Dimanche</div>
-        <div>Lundi</div>
-        <div>Mardi</div>
-        <div>Mercredi</div>
-        <div>Jeudi</div>
-        <div class="dayoff">Vendredi</div>
+        <div class="days">
+          <div class="dayoff">Samedi</div>
+          <div>Dimanche</div>
+          <div>Lundi</div>
+          <div>Mardi</div>
+          <div>Mercredi</div>
+          <div>Jeudi</div>
+          <div class="dayoff">Vendredi</div>
+        </div>
+        <div id="grid" class="grid"></div>
       </div>
-      <div id="grid" class="grid"></div>
     </div>
-  </div>
-    </main>
-    <script src="calendar.js"></script>
-  </body>
-  </html>
+  </main>
+  <script src="calendar.js"></script>
+</body>
+
+</html>

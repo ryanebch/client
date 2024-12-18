@@ -96,6 +96,11 @@ body {
   margin-top: -20px;
 
 }
+.header .logo {
+  font-size: 3rem;
+  color: var(--black);
+  font-weight: 500; /* or 600 */
+}
 
 
 .header .logo {
